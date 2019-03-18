@@ -1,14 +1,9 @@
-import argparse
+year = 2000
+month = 10
+day = 27
+hour = 11
+minute = 43
+second = 59
 
-def main():
-	parser = argparse.ArgumentParser()
-	parser.add_argument('X', type=int, help="what is the first number?")
-	parser.add_argument('Y', type=int, help="what is the second number?")
-
-	args = parser.parse_args()
-	X = args.X
-	Y = args.Y
-	print("%d + %d = %d"%(X, Y, X+Y))
-
-if __name__=="__main__":
-	main()
+print(year, month, day, sep='/', end=' ')
+print(hour, minute, second, sep=':')
