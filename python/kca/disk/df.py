@@ -1,7 +1,7 @@
 import paramiko
 import re
 
-hosts = {'192.168.6.222': '24477', '192.168.6.250': '24477', '192.168.6.239': '24477'}
+hosts = {'ip': 'port'}
 cmd = "df -h"
 #cmd = "df -h | awk '{print $(NF-1), $(NF-0)}'"
 
@@ -14,7 +14,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 def connection(host, port):
 	print(host)
 	ret = ''
-	ssh.connect(host, username='chk1417', port=port, password='8282op82@#')
+	ssh.connect(host, username='id', port=port, password='pw')
 	ssh.invoke_shell()
 	stdin, stdout, stderr = ssh.exec_command(cmd)
 	'''

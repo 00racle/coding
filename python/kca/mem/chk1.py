@@ -3,7 +3,7 @@ import time
 import sys
 from datetime import datetime
 
-hosts = {'192.168.6.222': '24477', '192.168.6.250': '24477'}
+hosts = {'ip': 'port'}
 cmd = "free -m | awk '/Mem:/' | awk '{print $2, $3, $4}'"
 #cmd = 'hostname'
 
@@ -13,7 +13,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 def conn(host, port):
 	ret = []
 	print(host)
-	ssh.connect(host, username='chk1417', port=port, password='8282op82@#')
+	ssh.connect(host, username='id', port=port, password='pw')
 	ssh.invoke_shell()
 	stdin, stdout, stderr = ssh.exec_command(cmd)
 	for line in stdout:

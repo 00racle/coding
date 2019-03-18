@@ -1,7 +1,7 @@
 import paramiko
 import cx_Oracle
 
-conn_db = cx_Oracle.connect('espresso/8282082@192.168.6.206:1521/cpberp11')
+conn_db = cx_Oracle.connect('db 계정')
 db = conn_db.cursor()
 
 
@@ -9,7 +9,7 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 
-ssh.connect('192.168.6.206', username='chk1417', port='24477', password='8282op82@#')
+ssh.connect('ip', username='id', port='port', password='pw')
 ssh.invoke_shell()
 stdin, stdout, stderr = ssh.exec_command("ps aux | grep oracleCPBERP11 | sed -n '1p' | awk '{print $2}'")
 for line in stdout:

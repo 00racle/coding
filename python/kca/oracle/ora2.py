@@ -2,7 +2,7 @@ import cx_Oracle
 import paramiko
 
 cmd = "free -m | awk '/Mem:/' | awk '{print $2, $3, $4}'"
-conn = cx_Oracle.connect('espresso/8282082@192.168.6.206:1521/cpberp11')
+conn = cx_Oracle.connect('db 계정')
 db = conn.cursor()
 db.execute('select ip, port from svr_list')
 
@@ -16,7 +16,7 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 def connection(host, port):
 	print(host)
-	ssh.connect(host, username='chk1417', port=port, password='8282op82@#')
+	ssh.connect(host, username='id', port=port, password='pw')
 	ssh.invoke_shell()
 	stdin, stdout, stderr = ssh.exec_command(cmd)
 	for line in stdout:

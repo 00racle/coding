@@ -6,7 +6,7 @@ cmd_df = "df -h | awk '{print $(NF-1), $(NF-0)}' | grep '%'"
 cmd_cpu = "mpstat -P ALL | awk '{print $NF}' | sed -n '4, $'p" 
 cmd_uptime = "uptime | awk '{print $3}'"
 
-conn_db = cx_Oracle.connect('espresso/8282082@192.168.6.206:1521/cpberp11')
+conn_db = cx_Oracle.connect('db 계정')
 db = conn_db.cursor()
 db.execute('select ip, port from svr_list')
 
@@ -22,7 +22,7 @@ def conn(host, port):
 	df_ret = []
 	cpu_ret = []
 	print(host)
-	ssh.connect(host, username='chk1417', port=port, password='8282op82@#')
+	ssh.connect(host, username='', port=port, password='pw')
 	ssh.invoke_shell()
 
 	stdin, stdout, stderr = ssh.exec_command(cmd_uptime)

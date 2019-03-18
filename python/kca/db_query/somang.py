@@ -2,8 +2,8 @@ import paramiko
 import cx_Oracle
 from datetime import datetime
 
-host = '192.168.6.113'
-port = 24477
+host = 'ip'
+port = port
 cmd = "ps aux | awk '$3 > 90.0 {print $2, $3, $11}'"
 
 ssh = paramiko.SSHClient()
@@ -13,7 +13,7 @@ ret = []
 f = open('/root/crawler/test/test/db_query/result/result_pid_somang.txt', 'a')
 def conn(host, port, cmd):
 	pid = []
-	ssh.connect(host, username='chk1417', port=port, password='8282op82@#')
+	ssh.connect(host, username='id', port=port, password='pw')
 	ssh.invoke_shell()
 	stdin, stdout, stderr = ssh.exec_command(cmd)
 	for line in stdout:
@@ -27,7 +27,7 @@ def conn(host, port, cmd):
 
 def query():
 	spid = conn(host, port, cmd)
-	conn_db = cx_Oracle.connect('CAIS/isdkdldptm@192.168.6.113:1521/CASYS11')
+	conn_db = cx_Oracle.connect('oracle id')
 	db = conn_db.cursor()
 	for i in spid:
 		db.execute("SELECT c.sql_text, a.* FROM v$session a, v$process b, v$sql c WHERE a.paddr = b.addr AND a.sql_address = c.address AND b.spid = :pid", pid=i)
