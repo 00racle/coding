@@ -1,9 +1,7 @@
-year = 2000
-month = 10
-day = 27
-hour = 11
-minute = 43
-second = 59
+class Time:
+	def __init__(self, hour, minute, second):
+		self.hour = hour
+		self.minute = minute
+		self.second = second
 
-print(year, month, day, sep='/', end=' ')
-print(hour, minute, second, sep=':')
+	def is_time_valid(
