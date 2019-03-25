@@ -1,0 +1,10 @@
+class Person:
+	def greeting(self):
+		print("안녕하세요")
+
+class Student(Person):
+	def greeting(self):
+		print("오버라이딩 테스트")
+
+james = Student()
+james.greeting()
