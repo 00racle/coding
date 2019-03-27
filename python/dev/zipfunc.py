@@ -7,7 +7,7 @@ start_time = time.time()
 fin = True
 
 pwlist = []
-for i in range(100000):
+for i in range(1000000):
 	pwlist.append(str(i))
 
 def Extract(zFile, pwstr):
@@ -21,7 +21,7 @@ def Extract(zFile, pwstr):
 		pass
 
 def main():
-	zFile = zipfile.ZipFile('test.zip', 'r')
+	zFile = zipfile.ZipFile('6pw.zip', 'r')
 
 	print("Extraction Start -------------------- \n")
 	for i in pwlist:
