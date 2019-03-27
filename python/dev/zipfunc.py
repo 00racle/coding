@@ -21,7 +21,8 @@ def Extract(zFile, pwstr):
 		pass
 
 def main():
-	zFile = zipfile.ZipFile('6pw.zip', 'r')
+	Filename = input("zipfile name: ")
+	zFile = zipfile.ZipFile(Filename, 'r')
 
 	print("Extraction Start -------------------- \n")
 	for i in pwlist:
