@@ -7,7 +7,7 @@ start_time = time.time()
 fin = True
 
 pwlist = []
-for i in range(1000000):
+for i in range(10000000):
 	pwlist.append(str(i))
 
 def Extract(zFile, pwstr):
