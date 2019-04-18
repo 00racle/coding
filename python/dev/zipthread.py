@@ -5,12 +5,11 @@ import time
 start_time = time.time()
 
 pwlist = []
-for i in range(10000):
+for i in range(1000):
 	pwlist.append(str(i))
 
 def Extract(zFile, pwstr):
 	try:
-		global fin
 		zFile.extractall(pwd = pwstr.encode())
 		print("Found Password : {0} ".format(pwstr))
 	except:
