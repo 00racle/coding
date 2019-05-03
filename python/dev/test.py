@@ -1,11 +1,15 @@
-def palindrome(word):
-	l = list(word)
-	if l != l[::-1]:
-		raise NotPalindromeError('회문이 아닙니다')
-	print(word)
+a = [[1,2],[3,4]]
+b = [[4,3],[2,1]]
 
-try:
-	word = input("회문 판별 문자열 입력: ")
-	palindrome(word)
-except NotPalindromeError as e:
-	print(e)
+def solution(a, b):
+	p = []
+	for i in range(2):
+		m = []
+		for j in range(2):
+			m.append(a[i][j] + b[i][j])
+		p.append(m)
+
+
+	print(p)
+
+solution(a, b)
