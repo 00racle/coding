@@ -1,6 +1,8 @@
 import math
 
-n = 121
+#n = 121
+n = 3
+
 '''
 def solution(n):
 	answer = 0
@@ -11,9 +13,7 @@ def solution(n):
 '''
 
 def solution(n):
-	print(bin(11))
-	print(bin(121))
-	
 
-#print(solution(n))
-solution(n)
+
+print(solution(n))
+#solution(n)
