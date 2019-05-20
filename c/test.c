@@ -1,12 +1,32 @@
 #include <stdio.h>
+#include <string.h>
+
+int Solution(int a, int b)
+{
+	int sum=0;
+	int i;
+	if(a>b)
+	{
+		for(i=b; i<=a; i++)
+			sum += i;
+		return sum;
+	}
+	else
+	{
+		for(i=a; i<=b; i++)
+			sum += i;
+		return sum;
+	}
+}
+
 
 int main(void)
 {
-	int arr[3]={0, 1, 2};
-	printf("배열의 이름: %p \n", arr);
-	printf("첫번째 요소: %p \n", &arr[0]);
-	printf("두번째 요소: %p \n", &arr[1]);
-	printf("세번째 요소: %p \n", &arr[2]);
+	int a, b;
+
+	printf("정수 두개 입력하세요!");
+	scanf("%d %d", &a, &b);
+
+	printf("결과값은 : %d \n", Solution(a, b));
 	return 0;
 }
-
