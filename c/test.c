@@ -2,11 +2,19 @@
 
 int main(void)
 {
-	int arr[3]={0, 1, 2};
-	printf("배열의 이름: %p \n", arr);
-	printf("첫번째 요소: %p \n", &arr[0]);
-	printf("두번째 요소: %p \n", &arr[1]);
-	printf("세번째 요소: %p \n", &arr[2]);
+	int arr[3][9];
+	int i, j;
+
+	for(i=0; i<3; i++)
+		for(j=0; j<9; j++)
+			arr[i][j] = (i+2) * (j+1);
+
+
+	for(i=0; i<3; i++)
+	{
+		for(j=0; j<9; j++)
+			printf("%4d", arr[i][j]);
+		printf("\n");
+	}
 	return 0;
 }
-
