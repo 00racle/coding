@@ -1,4 +1,5 @@
 arr = [1,1,3,3,0,1,1]
+#arr = [4,4,4,3,3]
 
 '''
 def solution(arr):
@@ -10,8 +11,6 @@ def solution(arr):
             answer.append(i)
     return answer
 '''
-
 def solution(arr):
-    return 
-
+    
 print(solution(arr))
