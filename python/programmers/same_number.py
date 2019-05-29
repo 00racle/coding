@@ -11,6 +11,8 @@ def solution(arr):
             answer.append(i)
     return answer
 
+print(solution(arr))
+
 '''
 # 다른사람 코드
 # 1.
