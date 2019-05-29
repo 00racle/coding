@@ -1,13 +1,9 @@
-#n = 121
-n = 9   # 4.5   3
-n = 16  # 8     4
-n = 49  # 24.5  7
-n = 64  # 32    8
-n = 81  # 40.5  9
-n = 100 # 50    10
-n = 121 # 60.5  11
-n = 144 # 72    12
+import math
+import time
 
+start_time = time.time()
+n = 428135971041
+n = 16
 '''
 def solution(n):
     answer = 0
@@ -15,12 +11,24 @@ def solution(n):
     	if i**2 == n:
 	    answer += i
     return -1 if answer == 0 else (answer+1)**2
+
 '''
 
 def solution(n):
-    for i in range(1, n):
-        if i 
-
+	answer = 0
+	l = math.ceil(len(str(n))/2)
+	print("길이: %d"%l)
+	print(10**l)
+	print(10**(l-1))
+	if n%10 not in [0, 1, 4, 5, 6, 9]:
+		return -1
+	else:
+		for i in range(10**(l-1), 10**l):
+			if i**2 == n:
+				answer += i
+	return (answer+1)**2
 
 print(solution(n))
+
+print("Runtime: %.02f"%(time.time() - start_time))
 #solution(n)
