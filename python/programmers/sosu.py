@@ -1,8 +1,8 @@
 import time
 
 start = time.time()
-n = 10
-
+n = 5
+'''
 def solution(n):
 	out = []
 	for i in range(1, n+1):
@@ -16,7 +16,10 @@ def solution(n):
 
 	print(len(out))
 	print(out)
-				
+'''
+
+def solution(n):
+
 
 solution(n)
 end = time.time()
