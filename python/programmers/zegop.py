@@ -2,18 +2,10 @@ import math
 import time
 
 start_time = time.time()
-n = 428135971041
-n = 16
+#n = 428135971041
+n = 122
+#n = 1
 '''
-def solution(n):
-    answer = 0
-    for i in range(1, 20):
-    	if i**2 == n:
-	    answer += i
-    return -1 if answer == 0 else (answer+1)**2
-
-'''
-
 def solution(n):
 	answer = 0
 	l = math.ceil(len(str(n))/2)
@@ -27,6 +19,12 @@ def solution(n):
 			if i**2 == n:
 				answer += i
 	return (answer+1)**2
+'''
+
+def solution(n):
+	#return (int(math.sqrt(n)) +1)**2 if n%10 in [0, 1, 4, 5, 6, 0] else -1
+
+	return ((math.sqrt(n))+1)**2 if math.sqrt(n) == int(math.sqrt(n)) else -1
 
 print(solution(n))
 
