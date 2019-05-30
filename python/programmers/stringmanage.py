@@ -1,15 +1,17 @@
-#s = "a234"
-s = "1234"
-
+s = "e1"
+#s = "1aa234"
+'''
 def solution(s):
-	'''
 	for i in s:
 		if ord(i) not in range(48, 57):
 			return False
 		else:
 		 	return True
-	'''
-	l = [i for i in s]
-	print(l)
-solution(s)
-#print(solution(s))
+
+'''
+def solution(s):
+	if len(s) != (4 or 6):
+		return False
+	else:
+	 	return True
+print(solution(s))
