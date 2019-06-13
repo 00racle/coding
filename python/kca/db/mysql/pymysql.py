@@ -21,3 +21,20 @@ try:
 		print(result)
 finally:
 	connection.close()
+
+'''
+예제) 리스트 에서 db insert
+
+데이터 형식
+['pc-off', '192.168.6.158', 24477]
+['logcenter', '192.168.7.101', 24477]
+
+for i in l:
+	L = i.split(' ')
+	L[1] = L[1].replace("ansible_host=", "")
+	L[2] = int(L[2].replace("ansible_port=", "").replace("\n", ""))
+	sql = "insert into v_svr(ip, port, id, pw, os, hostname)  values(%s, %s, 'chk1417', '8282op82@#', 'linux', %s);"
+	curs.execute(sql, (L[1], L[2], L[0]))
+
+conn_db.commit()
+conn_db.close()
