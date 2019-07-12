@@ -1,19 +1,12 @@
 import pymongo
-import json
-import datetime
-from pymongo import MongoClient
+import urllib.parse
 
-# json 타입의 문자열을 파이선 타입(딕셔너리)으로 변환해서 저장하는 예제
+#conn = pymongo.MongoClient("192.168.6.105", 27017)
+username = urllib.parse.quote_plus('root')
+password = urllib.parse.quote_plus('8282op82@#')
+conn = pymongo.MongoClient('mongodb://%s:%s@192.168.6.105:27017'%(username, password))
+db = conn.get_database("dchk")
+collection = db.get_collection("ubuntu")
 
-client = MongoClient("localhost", 27017)
-db = client.nlu
-db.logging
-
-mydata = """
-{"name": "yongjun", "age": 35}
-"""
-
-d = json.loads(mydata)
-d['date'] = datetime.datetime.utcnow()
-
-postid = db.logging.insert_one(d).inserted_id
+collection_list = db.collection_names()
+print(collection_list)
