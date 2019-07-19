@@ -7,7 +7,7 @@ start_time = time.time()
 fin = True
 
 pwlist = []
-for i in range(10000000):
+for i in range(1000000):
 	pwlist.append(str(i))
 
 def Extract(zFile, pwstr):
@@ -17,7 +17,7 @@ def Extract(zFile, pwstr):
 		print("Found Password : {0} ".format(pwstr))
 		fin = False
 	except:
-		#print("Wrong Password: {0} ".format(pwstr))
+		print("Wrong Password: {0} ".format(pwstr))
 		pass
 
 def main():
