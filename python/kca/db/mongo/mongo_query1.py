@@ -7,7 +7,7 @@ password = urllib.parse.quote_plus('8282op82@#')
 
 def main():
 	try:
-		conn = pymongo.MongoClient('mongodb://%s:%s@192.168.6.105:28017'%(username, password))
+		conn = pymongo.MongoClient('mongodb://%s:%s@192.168.6.105:27017'%(username, password))
 		db = conn['dchk']				# db명
 		print("MongoDB Connected. ")
 		cursor = db.ntp.find()		# 
