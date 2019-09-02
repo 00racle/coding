@@ -2,7 +2,7 @@
 #include <stdlib.h>				//malloc, free 함수가 선언된 헤더 파일
 #include <string.h>
 
-int sortnum(int n, int *arr)
+void sortnum(int n, int *arr)
 {
 	int i, j;
 	int temp=0;
@@ -20,11 +20,10 @@ int sortnum(int n, int *arr)
 	}
 }
 
-int main(void)
+void main(void)
 {
-	int n;
-	int i;
-	int arr[1001];
+	int n, i;
+	int arr[1000];
 	int sum1=0;
 	int sum2=0;
 	scanf("%d", &n);
@@ -37,5 +36,4 @@ int main(void)
 		sum2 += sum1;
 	}
 	printf("%d", sum2);
-	return 0;
 }
