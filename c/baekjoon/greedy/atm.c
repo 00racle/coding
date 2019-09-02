@@ -24,15 +24,20 @@ int sortnum(int n, int *arr)
 
 int main(void)
 {
-	int n=5;
+	int n;
 	int i;
-	int arr[5] = {3, 1, 4, 3, 2};
-	int *ptr=arr;
-
-	sortnum(n, ptr);
+	int arr[1001];
+	int sum1=0;
+	int sum2=0;
+	scanf("%d", &n);
+	for(i=0; i<n; i++)
+		scanf("%d", &arr[i]);
+	sortnum(n, arr);
 	for(i=0; i<n; i++)
 	{
-		printf("%d ", arr[i]);
+		sum1 += arr[i];
+		sum2 += sum1;
 	}
+	printf("%d", sum2);
 	return 0;
 }
