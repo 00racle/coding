@@ -1,5 +1,6 @@
 #s = ["sun", "bed", "car"]
-s = ["abce", "abcd", "cdx"]
+#s = ["abce", "abcd", "cdx"]
+s = ["abcd", "cdx", "abc", "abcde"]
 
 n = 2
 
