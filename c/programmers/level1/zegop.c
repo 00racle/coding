@@ -1,29 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // 0, 1, 4, 5, 6, 9
+// 2, 3, 7, 8
+// sqrt(
 
 long long solution(long long n)
 {
 	long long answer = 0;
+	if(sqrt(doubel(n)) == 
+	/*
 	int i;
 	int s;
-	if(n%1 == 0 || n%1 == 1 || n%1 == 4 || n%1 == 5 || n%1 == 6 || n%1 == 9)
-	{
-		for(i=0; i<n/2; i++)
-		{
-			if(i*i == n)
-			{
+	if(n%10 == 2 || n%10 == 3 || n%10 == 7 || n%10 == 8){
+		answer = -1;
+	}
+	else{
+		for(i=1; i<n/2; i++){
+			if(i*i == n){
 				s = i;
 				break;
 			}
 		}
 		answer = (s+1)*(s+1);
 	}
-	else
-	{
-		answer = -1;
-	}
+	*/
+	
+
 	return answer;
 }
 
