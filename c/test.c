@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
 int main(void)
 {
-	int num = 3;
-	printf("%d \n", num*3+1);
+	double num1 = sqrt(7.0);
+	printf("%f \n", num1);
+
+	printf("%f \n", num1%1.0);
 	return 0;
 }
