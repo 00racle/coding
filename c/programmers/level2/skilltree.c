@@ -8,6 +8,7 @@ int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 	for(i=0; i<skill_trees_len; i++)
 	{
 		printf("%s \n", skill_trees[i]);
+		printf("%d \n", sizeof(skill_trees[i]));
 		/*for(j=0; j<sizeof(skill_trees[i]); j++)
 		{
 			printf("%c ", skill_trees[i][j]);
