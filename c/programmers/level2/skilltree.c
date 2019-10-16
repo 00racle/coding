@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 {
@@ -7,13 +8,13 @@ int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 	int i, j;
 	for(i=0; i<skill_trees_len; i++)
 	{
-		printf("%s \n", skill_trees[i]);
-		printf("%d \n", sizeof(skill_trees[i]));
-		/*for(j=0; j<sizeof(skill_trees[i]); j++)
+		//printf("%s \n", skill_trees[i]);
+		//printf("%d \n", strlen(skill_trees[i]));
+		for(j=0; j<strlen(skill_trees[i]); j++)
 		{
 			printf("%c ", skill_trees[i][j]);
 		}
-		printf("\n");*/
+		printf("\n");
 	}
 
 	return answer;
