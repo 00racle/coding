@@ -12,7 +12,8 @@ int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 		//printf("%d \n", strlen(skill_trees[i]));
 		for(j=0; j<strlen(skill_trees[i]); j++)
 		{
-			printf("%c ", skill_trees[i][j]);
+			//printf("%c ", skill_trees[i][j]);
+			if(
 		}
 		printf("\n");
 	}
