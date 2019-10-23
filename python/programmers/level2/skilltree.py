@@ -1,5 +1,7 @@
-skill = "CBD"
-skill_trees = ["BACDE", "CBADF", "AECB", "BDA"]
+#skill = "CBD"
+skill = "DA"
+#skill_trees = ["BACDE", "CBADF", "AECB", "BDA"]
+skill_trees = ["ABCDE", "UCBADF", "ACEB", "BDA"]
 
 # "BCD", "CBD", "CB", "BD"
 
