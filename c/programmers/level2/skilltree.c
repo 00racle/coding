@@ -9,7 +9,7 @@ int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 	int i;
 	for(i=0; i<skill_trees_len; i++)
 	{
-		char nskill[4];
+		char nskill[10];
 		strcpy(nskill, skill);
 		for(; *skill_trees[i] != '\0'; skill_trees[i]++)
 		{
@@ -36,8 +36,10 @@ int solution(char* skill, char* skill_trees[], size_t skill_trees_len)
 
 int main(void)
 {
-	char skill[] = "CBD";
-	char* skill_trees[] = {"BACDE", "CBADF", "AECB", "DBA"};
+	//char skill[] = "CBD";
+	char skill[] = "DA";
+	//char* skill_trees[] = {"BACDE", "CBADF", "AECB", "DBA"};
+	char* skill_trees[] = {"ABCDE", "UCBADF", "ACEB", "BDA"};
 	printf("결과값: %d \n", solution(skill, skill_trees, sizeof(skill_trees)/sizeof(skill_trees[0])));
 	return 0;
 }
