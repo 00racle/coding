@@ -30,15 +30,13 @@ def solution(p, c):
             ret += j
     return ret
 print(solution(p, c))
+
 '''
-
 def solution(p, c):
-	print(collections.Counter(p))
-	print(collections.Counter(c))
-	answer = collections.Counter(p) - collections.Counter(c)
-	print(answer)
-	print(list(answer.keys()))
+	ret = ''
+	
 
-solution(p, c)
+
+print(solution(p, c))
 end_time = time.time()
 print("Runtime: %0.8f"%(end_time - start_time))
