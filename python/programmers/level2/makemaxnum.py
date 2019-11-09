@@ -8,7 +8,7 @@ k = 2
 
 def solution(number, k):
     answer = ''
-
+	
     return answer
 
 solution(number, k)
