@@ -1,25 +1,23 @@
 #include <stdio.h>
 
-int minnum(int n, int k, int *lst[])
+int main(void)
 {
-
-}
-
-int main(int n, int k)
-{
+	int n, k;
 	int i;
-	int lst[10];
+	int arr[10];
+
+	printf("n과k 그리고 동전 입력 \n");
 	scanf("%d %d", &n, &k);
-	printf("n은 : %d \n", n);
-	printf("k는 : %d \n", k);
 	for(i=0; i<10; i++)
 	{
-		scanf("%d", &lst[i]);
+		scanf("%d", &arr[i]);
 	}
+	printf("n : %d, k : %d \n", n, k);
+	printf("arr는 : ");
 	for(i=0; i<10; i++)
 	{
-		printf("%d ", lst[i]);
+		printf("%d ", arr[i]);
 	}
+	printf("\n");
 	return 0;
 }
-
