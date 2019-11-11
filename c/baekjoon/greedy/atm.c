@@ -20,7 +20,7 @@ void sortnum(int n, int *arr)
 	}
 }
 
-void main(void)
+int main(void)
 {
 	int n, i;
 	int arr[1000];
@@ -35,10 +35,7 @@ void main(void)
 		sum1 += arr[i];
 		sum2 += sum1;
 	}
-<<<<<<< HEAD
 	printf("%d", sum2);
-=======
 	printf("\n");
 	return 0;
->>>>>>> b30c5dbbad95297c19bf1eeadb1b1f658c7573fb
 }
