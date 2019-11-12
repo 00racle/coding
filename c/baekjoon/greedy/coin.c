@@ -12,12 +12,13 @@ int main(void)
 	{
 		scanf("%d", &arr[i]);
 	}
+	/*
 	printf("n : %d, k : %d \n", n, k);
 	printf("arr는 : ");
 	for(i=0; i<10; i++)
 	{
 		printf("%d ", arr[i]);
-	}
+	}*/
 	printf("\n");
 	return 0;
 }
