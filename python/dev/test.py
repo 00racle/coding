@@ -1,11 +1,22 @@
-s = "aabbaccc"
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget
 
-print("2a2ba3c")
+class MyApp(QWidget):
 
-def solution(s):
-    answer = ''
-    for i in range(len(s)):
+    def __init__(self):
+        super().__init__()
 
+        self.initUI()
 
+    def initUI(self):
 
-print(solution(s))
+        self.setWindowTitle('My First Application')
+        self.move(300, 300)
+        self.resize(400, 200)
+        self.show()
+
+if __name__ =='__main__':
+
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())
