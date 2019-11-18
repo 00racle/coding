@@ -1,22 +1,18 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 int main(void)
 {
-	char string[100];
+	char *string = "0xFF";
+	char *stop;
+	int radix;
+	long value;
 
-	puts("문자열을 입력한 후 Enter키를 치세요!");
-	puts("아무 문자도 입력하지 않으면 프로그램은 종료됩니다");
+	radix = 16;
 
-	do
-	{
-		gets(string);
+	value = strtol(string, &stop, radix);
 
-		if(strlen(string) == 0)break;
-
-		strupr(string);
-		puts(string);
-	}while(1);
-
+	printf("%ld 개의 문자가 변환되었습니다. \n", stop-string);
+	printf("16진수 %s를 숫자로 변환하면 %ld입니다. \n",string, value);
 	return 0;
 }
