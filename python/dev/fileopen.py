@@ -7,7 +7,8 @@ class MyWindow(QWidget):
         self.setupUI()
 
     def setupUI(self):
-        self.setGeometry(800, 200, 300, 300)
+        #self.setGeometry(800, 200, 300, 300)
+        self.setGeometry(800, 200, 400, 400)
         self.setWindowTitle("PyStock")
 
         self.pushButton = QPushButton("File Open")
