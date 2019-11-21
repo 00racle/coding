@@ -14,9 +14,10 @@ class MyWindow(QWidget):
         self.setWindowTitle("Passwod Crack")
         self.setWindowIcon(QIcon('anony.png'))
 
-        oImage = QImage("anony.png")
-        #sImage = oImage.scaled(QSize(600, 450))
-        sImage = oImage.scaled(QSize(50, 25))
+        #oImage = QImage("anony.png")
+        oImage = QImage("anonyback.jpg")
+        sImage = oImage.scaled(QSize(600, 450))
+        #sImage = oImage.scaled(QSize(50, 25))
         palette = QPalette()
         palette.setBrush(10, QBrush(sImage))
         self.setPalette(palette)
@@ -30,9 +31,9 @@ class MyWindow(QWidget):
         self.label = QLabel("파일경로")
 
         #uplayout 에 이미지 삽입
-        self.imglabel = QLabel()
-        pixmap = QPixmap("anonyback.jpg")
-        self.imglabel.setPixmap(pixmap)
+        #self.imglabel = QLabel()
+        #pixmap = QPixmap("anonyback.jpg")
+        #self.imglabel.setPixmap(pixmap)
 
         #self.output = QTextEdit()
         self.output = QLineEdit()
@@ -43,7 +44,7 @@ class MyWindow(QWidget):
         downLayout.addWidget(self.lineEdit)
         downLayout.addWidget(self.pushButton02)
         downLayout.addWidget(self.output)
-        upLayout.addWidget(self.imglabel)
+        #upLayout.addWidget(self.imglabel)
 
         layout = QVBoxLayout()
         layout.addLayout(upLayout)
