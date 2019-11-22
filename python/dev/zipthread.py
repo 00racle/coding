@@ -4,14 +4,18 @@ import time
 
 start_time = time.time()
 
+fin = True
+
 pwlist = []
 for i in range(10000):
 	pwlist.append(str(i))
 
 def Extract(zFile, pwstr):
 	try:
+		global fin
 		zFile.extractall(pwd = pwstr.encode())
 		print("Found Password : {0} ".format(pwstr))
+		fin = False
 	except:
 		print("Wrong Password : {0} ".format(pwstr))
 		pass
@@ -23,6 +27,8 @@ def main():
 	print("Extraction Start -------------------- \n")
 	for i in pwlist:
 		t = threading.Thread(target=Extract, args=(zFile, i))
+		if fin == False:
+			break
 		t.start()
 
 if __name__ == '__main__':
