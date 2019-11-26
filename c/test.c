@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define ADD 1
+#define MIN 0
 
 int main(void)
 {
-	char *string = "0xFF";
-	char *stop;
-	int radix;
-	long value;
+	int num1, num2;
+	printf("두 개의 정수 입력: ");
+	scanf("%d %d", &num1, &num2);
 
-	radix = 16;
+#if ADD					// ADD가 참 이라면
+	printf("%d + %d = %d \n", num1, num2, num1+num2);
+#endif
 
-	value = strtol(string, &stop, radix);
 
-	printf("%ld 개의 문자가 변환되었습니다. \n", stop-string);
-	printf("16진수 %s를 숫자로 변환하면 %ld입니다. \n",string, value);
-	return 0;
 }
