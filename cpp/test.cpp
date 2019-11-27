@@ -1,15 +1,16 @@
 #include <iostream>
+using namespace std;
 
 int main(void)
 {
-	int num=0;
-	int input;
+	int num1=1020;
+	int &num2=num1;
 
-	for(int i=0; i<5; i++)
-	{
-		std::cout<<i+1<<"번째 정수 입력: ";
-		std::cin>>input;
-		num+=input;
-	}
+	num2=3047;
+	cout<<"VAL: "<<num1<<endl;
+	cout<<"REF: "<<num2<<endl;
 
+	cout<<"VAL: "<<&num1<<endl;
+	cout<<"REF: "<<&num2<<endl;
+	return 0;
 }
