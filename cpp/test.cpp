@@ -1,20 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int& RefRetFuncOne(int &ref)
-{
-	ref++;
-	return ref;
-}
+#define ID_LEN		20
+#define MAX_SPD		200
+#define FUEL_STEP	2
+#define ACC_STEP	10
+#define BRK_STEP	10
 
-int main(void)
+struct Car
 {
-	int num1=1;
-	int &num2=RefRetFuncOne(num1);
+	char gmaerID[ID_LEN];		//소유자 ID
+	int fuelGauge;				//연료량
+	int curSpeed;				//현재속도
+};
 
-	num1++;
-	num2++;
-	cout<<"num1: "<<num1<<endl;
-	cout<<"num2: "<<num2<<endl;
-	return 0;
-}
+void ShowCarState(const Car &car)
