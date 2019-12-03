@@ -1,16 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int main(void)
+#define ID_LEN		20
+#define MAX_SPD		200
+#define FUEL_STEP	2
+#define ACC_STEP	10
+#define BRK_STEP	10
+
+struct Car
 {
-	int num1=1020;
-	int &num2=num1;
+	char gmaerID[ID_LEN];		//소유자 ID
+	int fuelGauge;				//연료량
+	int curSpeed;				//현재속도
+};
 
-	num2=3047;
-	cout<<"VAL: "<<num1<<endl;
-	cout<<"REF: "<<num2<<endl;
-
-	cout<<"VAL: "<<&num1<<endl;
-	cout<<"REF: "<<&num2<<endl;
-	return 0;
-}
+void ShowCarState(const Car &car)
