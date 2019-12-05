@@ -1,27 +1,17 @@
 #include <stdio.h>
 
-typedef struct point
+struct student
 {
-	int xpos;
-	int ypos;
-}Point;
-
-void ShowPosition(Point pos)
-{
-	printf("[%d, %d] \n", pos.xpos, pos.ypos);
-}
-
-Point GetCurrentPosition(void)
-{
-	Point cen;
-	printf("Input current pos: ");
-	scanf("%d %d", &cen.xpos, &cen.ypos);
-	return cen;
-}
+	int id;
+	char *name;
+	float percentage;
+};	//구조체 뒤에 세미콜론이 와야함
 
 int main(void)
 {
-	Point curPos = GetCurrentPosition();
-	ShowPosition(curPos);
+	struct student s = {1, "김철수", 90.5};
+	printf("아이디: %d \n", s.id);
+	printf("이름: %s \n", s.name);
+	printf("백분률: %f \n", s.percentage);
 	return 0;
 }
