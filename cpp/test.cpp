@@ -1,6 +1,5 @@
 #include <iostream>
 
-<<<<<<< HEAD
 using namespace std;
 
 struct student
@@ -61,5 +60,4 @@ int main(void){
 
 	Point p2 = { 3, 4 };
 	p2.print();
->>>>>>> 0569cfc698b361b9c826b9a69b99fd7ad5dad4f0
 }
