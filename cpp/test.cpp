@@ -1,63 +1,130 @@
 #include <iostream>
+#include <ctime>
+#include <conio.h>
 
 using namespace std;
 
-struct student
-{
-	private:
-		int id;
-		const char *name;
-		float percentage;
-	public:
-		void Show();
-		void SetInfo(int _id, const char *_name, float _percentage);
-};
+void Initialize();				// 초기화
+void Shuffle(int nCount);		// 입력된 카운트만큼 셔플
+void Swap(int* n0, int* n1);	// 스왑
+void Print();					// 출력
+bool Complete();				// 퍼즐 완성 여부 확인
+int GetIndex(int nNumber);		// 해당 숫자의 인덱스 반환
+void Play(int currentIndex);	// 게임 플레이
 
-void student::Show()
+const int KEY_LEFT = 75;
+const int KEY_RIGHT = 77;
+const int KEY_UP = 72;
+const int KEY_DOWN = 80;
+
+int nNumbers[25] = {};
+int nSize = sizeof(nNumbers) / sizeof(nNumbers[0]);
+
+void main()
 {
-	cout<<"아이디: "<<id<<endl;
-	cout<<"이름: "<<name<<endl;
-	cout<<"백분률: "<<percentage<<endl;
+	Initialize();
+	Shuffle(100);
+
+	while(!Complete())
+	{
+		Print();
+		int currentIndex = GetIndex(0);
+		Play(currentIndex);
+	}
 }
 
-void student::SetInfo(int _id, const char *_name, float _percentage)
+// 초기화
+void Initialize()
 {
-	id = _id;
-	name = _name;
-	percentage = _percentage;
+	for(int i=0; i<nSize; i++)
+	{
+		nNumbers[i] = i;
+	}
 }
 
-int main(void)
+// 입력된 카운트만큰 셔플
+void Shuffle(int nCount)
 {
-	student s;
+	srand(time(NULL));
+	for(int i=0; i<nCount; i++)
+	{
+		int nFirst = rand() % nSize;
+		int nSecond = rand() % nSize;
 
-	s.SetInfo(1, "김철수", 90.5);
-	s.Show();
-	return 0;
-=======
-class Point{
-	private:
-		int x;
-		int y;
-	public:
-		//디폴트 생성자
-		Point(){
-			x = 10;
-			y = 15;
-		}
-		Point(int x, int y){
-			this->x = x;
-			this->y = y;
-		}
-		void print(){
-			cout<<"X: "<<x<<", Y: "<<y<<"\n";
-		}
-};
+		Swap(&nNumbers[nFirst], &nNumbers[nSecond]);
+	}
+}
 
-int main(void){
-	Point p;
-	p.print();
+void Swap(int* n0, int* n1)
+{
+	int temp = *n0;
+	*n0 = *n1;
+	*n1 = temp;
+}
+// 출력
+void Print()
+{
+	system("cls");
+	cout<<"============< 퍼즐 게임 >=============="<<endl;
+	for(int i=0; i<nSize; i++)
+	{
+		if(i%5 == 0) cout<<endl;
+		cout<<nNumbers[i] <<'\t';
+	}
+}
+// 퍼즐 완성 여부 확인
+bool Complete()
+{
+	for(int i=0; i<nSize - 1; i++)
+	{
+		if(nNumbers[i] != i+1) return false;
+	}
+	return true;
+}
+// 해당 숫자의 인덱스 반환
+int GetIndex(int nNumber)
+{
+	for(int i=0; i<nSize; i++)
+	{
+		if(nNumbers[i] == nNumber) return i;
+	}
+	return -1;
+}
+// 게임 플레이
+void Play(int currentIndex)
+{
+	int nInput = getch();
+	if(nInput == 224)
+	{
+		nInput = getch();
 
-	Point p2 = { 3, 4 };
-	p2.print();
+		switch(nInput)
+		{
+			case KEY_LEFT:
+				if(currentIndex % 5 !=0)
+				{
+					Swap(&nNumbers[currentIndex], &nNumbers[currentIndex +1]);
+				}
+				break;
+
+			case KEY_RIGHT:
+				if(currentIndex % 5 !=4)
+				{
+					Swap(&nNumbers[currentIndex], &nNumbers[currentIndex + 1]);
+				}
+				break;
+			case KEY_UP:
+				if(currentIndex / 5 != 0)
+				{
+					Swap(&nNumbers[currentIndex], &nNumbers[currentIndex - 5]);
+				}
+				break;
+			case KEY_DOWN:
+				if(currentIndex / 5 != 4)
+				{
+					Swap(&nNumbers[currentIndex], &nNumbers[currentIndex + 5]);
+				}
+				break;
+		}
+	}
 }
