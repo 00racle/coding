@@ -13,5 +13,18 @@ def solution(n):
 
     return answer
 
+# 다른 사람 풀이
+'''
+
+su = bin(n).count('1')
+while True:
+    n = n+1
+    if su == bin(n).count('1'):
+        break
+
+return n
+
+'''
+
 print(solution(n))
 
