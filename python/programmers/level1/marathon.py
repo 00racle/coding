@@ -8,6 +8,7 @@ import collections
 p = ["mislav", "stanko", "mislav", "ana"]
 c = ["stanko", "ana", "mislav"]
 start_time=time.time()
+'''
 def solution(p, c):
     ret = ''
     for j in p:
@@ -20,15 +21,15 @@ def solution(p, c):
 '''
 def solution(p, c):
     ret = ''
-    for j in p:
-        if j in c:
-            I = c.index(j)
-            del c[I]
-        else:
-            ret += j
+    p.sort()
+    c.sort()
+    ret = p[-1]
+    for i in range(len(c)):
+        if p[i] != c[i]:
+            ret = p[i]
+            break
     return ret
 print(solution(p, c))
-'''
 # ------- 다른 사람 풀이 ------------
 '''
 def solution(p, c):
