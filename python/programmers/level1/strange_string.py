@@ -1,21 +1,22 @@
-#s = "try  hello world"
+#s = "try  hello world "
 #s = "try hello world strys try"
 s = "sp  ace"
 
 def solution(s):
     answer = ""
-    l = s.split(" ")
-    for i in l:
-        for j in range(len(i)):
-            if j%2 == 0:
-                answer += i[j].upper()
-            else:
-                answer += i[j]
-        answer += " "
+	cnt = 0
+	for i in list(s):
+		if i != " ":
+			if cnt%2 == 0:
+				answer += i.upper()
+				cnt += 1
+			else:
+				answer += i.lower()
+				cnt += 1
+		else:
+			answer += " "
+			cnt = 0
 
-    answer = answer.strip()
-
-    return answer + "."
-
+	return answer
             
 print(solution(s))
