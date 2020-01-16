@@ -1,6 +1,6 @@
 #s = "try  hello world"
-s = "try hello world strys try"
-#s = "sp  ace"
+#s = "try hello world strys try"
+s = "sp  ace"
 
 def solution(s):
     answer = ""
