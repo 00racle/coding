@@ -51,7 +51,15 @@ vector<int> solution(vector<int> answers)
 	}
 	for(int i=0; i<3; i++)
 	{
-		
+		cnt = 0;
+		for(int j=0; j<length; j++)
+		{
+			if(answers[j] == su2[i][j])
+			{
+				cnt += 1;
+			}
+		}
+		answer.push_back(cnt);
 	}
 	return answer;
 }
