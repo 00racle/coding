@@ -34,6 +34,7 @@ def sec_chk(idx, svr):
             Lver = line.rstrip('\n')   
 
         print(svr[4])
+
         # 엑셀 셀 테두리 설정
         thin_border = Border(left=Side(style='thin'),
                 right = Side(style='thin'),
@@ -41,10 +42,16 @@ def sec_chk(idx, svr):
                 bottom = Side(style='thin'))
 
         nsheet = "sheet"+"idx"
+
+        # 서버 hostname 으로 새로우 sheet 생성
         nsheet = wb.create_sheet(svr[4])
+
+        # 'B', 'D', 'E' 컬럼 넓이 60 으로 설정
         nsheet.column_dimensions['B'].width = 60
         nsheet.column_dimensions['D'].width = 60
         nsheet.column_dimensions['E'].width = 60
+        
+        # 1행 1열 셀에 "구분" 입력, 셀 회색(999999) 으로 채움, "구분" 글자 진하게(bold)
         nsheet.cell(row=1, column=1).value = "구분"
         nsheet['A1'].fill = PatternFill(start_color="999999", end_color="999999", fill_type="solid")
         nsheet['A1'].font = openpyxl.styles.fonts.Font(bold=True)
@@ -76,9 +83,13 @@ def sec_chk(idx, svr):
             u01s += i+"\n"
 
         U01.append(u01s)
+
         nsheet.append(U01)
+        # 만들어진 sheet 에 리스트 추가
+
         if U01[2] == "취약":
             nsheet['C2'].fill = PatternFill(start_color="FFFF0000", end_color="FFFF0000", fill_type="solid")
+        # U01[2] 셀의 값이 "취약" 일경우 셀 색상 빨간색(FFFF0000) 으로 채움
 
 # ================================================== U-02 ==================================================
   
@@ -571,8 +582,9 @@ def sec_chk(idx, svr):
         for i in range(1, 6):
             for j in range(1, 26):
                 nsheet.cell(row=j, column=i).border = thin_border
+        # 정의해 놓은 thin_border 형식으로 for문만큼 테두리 그림 
+
     except paramiko.ssh_exception.NoValidConnectionsError as 접속불가:
-    #except paramiko.SSHException.NoValidConnectionsError as 접속불가:
         print("접속불가(ip및 포트확인)")
     
     except paramiko.ssh_exception.AuthenticationException as 접속불가:
@@ -581,5 +593,4 @@ def sec_chk(idx, svr):
 for idx, svr in enumerate(result):
     sec_chk(idx, svr)
 
-#wb.save(filename="Unix_sec_chk.xlsx")
-wb.save(filename="chk_cent7.xlsx")
+wb.save(filename="Unix_sec_chk.xlsx")
