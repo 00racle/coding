@@ -6,16 +6,10 @@ from openpyxl.styles import PatternFill
 from openpyxl.styles.borders import Border, Side
 
 
-conn_db = pymysql.connect(host = '192.168.6.160', user='chk1417', password='8282op82@#', db='dchk')
+conn_db = pymysql.connect(host = 'x.x.x.x', user='userid', password='password', db='dbname')
 curs = conn_db.cursor()
 
 sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr;'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname="sobi-webwas";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname not in("psm-was", "messenger");'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where hostname="Test6";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where hostname="cent7";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where version like "%cent%";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname="mail";'
 curs.execute(sql)
 
 result = curs.fetchall()
@@ -25,18 +19,20 @@ ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 wb = openpyxl.Workbook()                            # 엑셀 생성
-sheet = wb.active
+sheet = wb.active                                   # sheet 생성
 
 def sec_chk(idx, svr):
     try:
         ssh.connect(svr[0], username=svr[2], port=svr[1], password=svr[3].decode('utf-8'))
         ssh.invoke_shell()
-    
+        
+        # 리눅스 버젼 확인
         stdin, stdout, stderr = ssh.exec_command("cat -n /etc/system-release | cut -d'.' -f1 | awk '{print $NF}'")
         for line in stdout:
             Lver = line.rstrip('\n')   
 
         print(svr[4])
+        # 셀 테두리 설정
         thin_border = Border(left=Side(style='thin'),
                 right = Side(style='thin'),
                 top = Side(style='thin'),
