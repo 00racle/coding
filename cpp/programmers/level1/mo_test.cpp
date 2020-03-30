@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -61,5 +62,14 @@ vector<int> solution(vector<int> answers)
 		}
 		answer.push_back(cnt);
 	}
-	return answer;
+	vector<int> ret;
+	int max = *max_element(answer.begin(), answer.end());
+	for(int i=0; i<answer.size(); i++)
+	{
+		if(max == answer[i])
+		{
+			ret.push_back(i);
+		}
+	}
+	return ret;
 }
