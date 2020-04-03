@@ -6,16 +6,10 @@ from openpyxl.styles import PatternFill
 from openpyxl.styles.borders import Border, Side
 
 
-conn_db = pymysql.connect(host = '192.168.6.160', user='chk1417', password='8282op82@#', db='dchk')
+conn_db = pymysql.connect(host = 'x.x.x.x', user='userid', password='password', db='dbname')
 curs = conn_db.cursor()
 
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr;'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname="sobi-webwas";'
-sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname not in("messenger");'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where hostname="Test6";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where hostname="cent7";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from t_svr where version like "%cent%";'
-#sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr where hostname="mail";'
+sql = 'select ip, port, id, AES_DECRYPT(UNHEX(pw), ip) as pw, hostname from v_svr;'
 curs.execute(sql)
 
 result = curs.fetchall()
@@ -540,7 +534,6 @@ def sec_chk(idx, svr):
 
 # ================================================== U-21 ==================================================
 
-        #U21 = ["U-21", "IP 포워딩 비활성화", "", "sudo sysctl net.ipv4.ip_forward"]
         U21 = ["U-21", "IP 포워딩 비활성화", "", "/sbin/sysctl net.ipv4.ip_forward"]
         u21 = []
         u21s = ""
@@ -642,7 +635,6 @@ def sec_chk(idx, svr):
             for j in range(1, 28):
                 nsheet.cell(row=j, column=i).border = thin_border
     except paramiko.ssh_exception.NoValidConnectionsError as 접속불가:
-    #except paramiko.SSHException.NoValidConnectionsError as 접속불가:
         print("접속불가(ip및 포트확인)")
     
     except paramiko.ssh_exception.AuthenticationException as 접속불가:
@@ -652,4 +644,3 @@ for idx, svr in enumerate(result):
     sec_chk(idx, svr)
 
 wb.save(filename="Unix_sec_chk.xlsx")
-#wb.save(filename="Cent7_result.xlsx")
